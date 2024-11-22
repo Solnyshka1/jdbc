@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<?import javafx.collections.FXCollections?>
+<?import javafx.geometry.Insets?>
+<?import javafx.scene.control.*?>
+<?import javafx.scene.layout.*?>
+
+<?import java.lang.String?>
+<VBox xmlns:fx="http://javafx.com/fxml" fx:controller="com.example.jdbc.HelloController" alignment="CENTER" spacing="10.0">
+    <padding>
+        <Insets top="10.0" right="10.0" bottom="10.0" left="10.0"/>
+    </padding>
+
+    <TableView fx:id="employeeTable">
+        <columns>
+            <TableColumn text="Name" fx:id="nameColumn"/>
+            <TableColumn text="Employee Type" fx:id="typeColumn"/>
+            <TableColumn text="Salary" fx:id="salaryColumn"/>
+        </columns>
+    </TableView>
+
+    <GridPane hgap="10.0" vgap="10.0">
+        <Label text="Name:" GridPane.rowIndex="0" GridPane.columnIndex="0"/>
+        <TextField fx:id="nameField" promptText="Enter name" GridPane.rowIndex="0" GridPane.columnIndex="1"/>
+
+        <Label text="Type:" GridPane.rowIndex="1" GridPane.columnIndex="0"/>
+        <ComboBox fx:id="typeBox" promptText="Select type" GridPane.rowIndex="1" GridPane.columnIndex="1">
+            <items>
+                <FXCollections fx:factory="observableArrayList">
+                    <String fx:value="Full-time"/>
+                    <String fx:value="Part-time"/>
+                    <String fx:value="Contractor"/>
+                </FXCollections>
+            </items>
+        </ComboBox>
+
+        <Label text="Annual Salary:" GridPane.rowIndex="2" GridPane.columnIndex="0"/>
+        <TextField fx:id="salaryField" promptText="Enter annual salary" GridPane.rowIndex="2" GridPane.columnIndex="1"/>
+
+        <Label text="Hourly Rate:" GridPane.rowIndex="3" GridPane.columnIndex="0"/>
+        <TextField fx:id="hourlyRateField" promptText="Enter hourly rate" GridPane.rowIndex="3" GridPane.columnIndex="1"/>
+
+        <Label text="Hours Worked:" GridPane.rowIndex="4" GridPane.columnIndex="0"/>
+        <TextField fx:id="hoursField" promptText="Enter hours worked" GridPane.rowIndex="4" GridPane.columnIndex="1"/>
+    </GridPane>
+    <Button text="Add Employee" onAction="#handleAddEmployee" />
+    <Button text="Remove Selected" onAction="#handleDeleteEmployee" />
+</VBox>
